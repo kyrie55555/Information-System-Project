@@ -1,0 +1,111 @@
+Розділ 7. Модель даних
+7.1 Основні сутності системи
+
+Модель даних складається з наступних сутностей:
+
+User (Користувач)
+
+Product (Товар)
+
+Category (Категорія)
+
+Order (Замовлення)
+
+OrderItem (Позиція замовлення)
+
+Cart (Кошик)
+
+7.2 Опис сутностей
+1. User
+
+Атрибути:
+
+user_id (PK)
+
+name
+
+email
+
+password
+
+role (user/admin)
+
+2. Product
+
+Атрибути:
+
+product_id (PK)
+
+name
+
+description
+
+price
+
+stock_quantity
+
+category_id (FK)
+
+3. Category
+
+Атрибути:
+
+category_id (PK)
+
+category_name
+
+4. Order
+
+Атрибути:
+
+order_id (PK)
+
+user_id (FK)
+
+order_date
+
+total_amount
+
+status
+
+5. OrderItem
+
+Атрибути:
+
+order_item_id (PK)
+
+order_id (FK)
+
+product_id (FK)
+
+quantity
+
+price
+
+6. Cart
+
+Атрибути:
+
+cart_id (PK)
+
+user_id (FK)
+
+product_id (FK)
+
+quantity
+
+7.3 Зв’язки між сутностями
+
+Один User може мати багато Orders (1:M)
+
+Один Order містить багато OrderItem (1:M)
+
+Один Product може належати одній Category (M:1)
+
+Один User може мати багато записів у Cart (1:M)
+
+OrderItem пов’язує Order і Product (багато-до-багатьох через проміжну таблицю)
+
+7.4 Тип моделі
+
+Модель є реляційною та реалізується у вигляді таблиць бази даних.
